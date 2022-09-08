@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Item;
+use App\Services\PurchaseService;
 use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
@@ -15,7 +15,7 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        return Item::all();
+        return PurchaseService::getItems();
     }
 
     /**

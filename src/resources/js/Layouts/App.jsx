@@ -1,5 +1,6 @@
 import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import UsersIndex from "../Pages/Users";
+import UserShow from "../Pages/Users/show";
 
 function App() {
     return (
@@ -11,17 +12,10 @@ function App() {
                             <div className="flex">
                                 <div className="shrink-0 flex items-center">
                                     <a href="/">
-                                        React Course
+                                        Users
                                     </a>
                                 </div>
 
-                                <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                    <Link to="/"
-                                          className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">Posts</Link>
-                                    <Link to="/posts/create"
-                                          className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">Add
-                                        post</Link>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -30,7 +24,6 @@ function App() {
                 <header className="bg-white shadow">
                     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                            Dashboard
                         </h2>
                     </div>
                 </header>
@@ -42,6 +35,7 @@ function App() {
                                 <div className="p-6 bg-white border-b border-gray-200">
                                     <Routes>
                                         <Route path="/" element={<UsersIndex/>}></Route>
+                                        <Route path="/user/:id" element={<UserShow/>}></Route>
                                     </Routes>
                                 </div>
                             </div>

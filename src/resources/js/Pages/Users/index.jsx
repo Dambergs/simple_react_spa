@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link, BrowserRouter, Routes, Route } from "react-router-dom";
 
 class UsersIndex extends Component {
     constructor(props) {
@@ -10,8 +11,8 @@ class UsersIndex extends Component {
     }
 
     fetchUsers() {
-        axios.get('/api/users')
-            .then(response => this.setState({ users: response.data }))
+        axios.get('/users')
+            .then(response => this.setState({ users: response.data.data}))
     }
 
     componentDidMount() {
@@ -21,9 +22,11 @@ class UsersIndex extends Component {
     renderUsers() {
         return this.state.users.map(user => <tr key={user.id}>
             <td>{ user.id }</td>
-            <td>{ user.first_name } { user.last_name } </td>
+            <td><Link to={"/user/" + user.id}>{ user.first_name } { user.last_name }
+            </Link></td>
             <td>{ user.email }</td>
-        </tr>);
+        </tr>
+    )
     }
 
     render() {
